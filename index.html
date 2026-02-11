@@ -1,745 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RedPorn - Best Porn Videos.">
-    <meta name="theme-color" content="#141414">
-    <title>RedPorn | Best Porn Videos</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RedPorn - Best Porn Videos.">
+<meta name="theme-color" content="#141414">
+<title>RedPorn | Best Porn Videos</title>
 
-    <!-- Favicon (Data URI for standalone requirement) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
 
-    <style>
-        /* =========================================
-           CSS VARIABLES & RESET
-           ========================================= */
-        :root {
-            --primary-red: #E50914;
-            --primary-red-hover: #b20710;
-            --bg-black: #141414;
-            --bg-dark-gray: #1f1f1f;
-            --text-white: #ffffff;
-            --text-gray: #b3b3b3;
-            --font-heading: 'Poppins', sans-serif;
-            --font-body: 'Inter', sans-serif;
-            --transition-speed: 0.3s;
-        }
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+:root {
+    --primary-red: #E50914;
+    --primary-red-hover: #b20710;
+    --bg-black: #141414;
+    --bg-dark-gray: #1f1f1f;
+    --text-white: #ffffff;
+    --text-gray: #b3b3b3;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition-speed: 0.3s;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background-color: var(--bg-black);
-            color: var(--text-white);
-            font-family: var(--font-body);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+body {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-black);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-red);
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-red-hover);
-        }
+/* HERO FULL IMAGE FIX */
+#hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('img5.jpg');
+    background-size: contain; /* FULL IMAGE */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color var(--transition-speed);
-        }
+#hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, black 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);
+    z-index: 1;
+}
 
-        ul {
-            list-style: none;
-        }
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+}
 
-        /* Utility Classes */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--primary-red);
+}
 
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 4px;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all var(--transition-speed);
-            border: none;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
 
-        .btn-primary {
-            background-color: var(--primary-red);
-            color: white;
-        }
+/* FEATURED FULL IMAGE FIX */
+#featured {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-image: url('img4.png');
+    background-size: contain; /* FULL IMAGE */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: black;
+    overflow: hidden;
+    margin-bottom: 4rem;
+}
 
-        .btn-primary:hover {
-            background-color: var(--primary-red-hover);
-            transform: scale(1.05);
-        }
+/* Soft cinematic overlay */
+#featured::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+}
 
-        .btn-secondary {
-            background-color: rgba(109, 109, 110, 0.7);
-            color: white;
-            margin-left: 10px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            backdrop-filter: blur(4px);
-        }
+.featured-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, black 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, transparent 100%);
+    z-index: 1;
+}
 
-        .btn-secondary:hover {
-            background-color: rgba(109, 109, 110, 0.4);
-            transform: scale(1.05);
-        }
+.featured-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding-left: 5%;
+}
 
-        /* Fade In Animation Class (Triggered by JS) */
-        .fade-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+.btn {
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+}
 
-        .fade-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.btn-primary {
+    background-color: var(--primary-red);
+    color: white;
+}
 
-        /* =========================================
-           HERO SECTION
-           ========================================= */
-        #hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            /* Cinematic Background Image */
-            background-image: url('img5.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.btn-secondary {
+    background-color: rgba(109,109,110,0.7);
+    color: white;
+}
 
-        /* Dark Gradient Overlay */
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, var(--bg-black) 0%, rgba(20,20,20,0.6) 50%, rgba(20,20,20,0.4) 100%);
-            z-index: 1;
-        }
+/* CATEGORIES */
+.categories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            padding: 0 20px;
-        }
+.category-card {
+    position: relative;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
 
-        .hero-title {
-            font-family: var(--font-heading);
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--primary-red);
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
-        }
+.category-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
 
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
+.category-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* =========================================
-           FEATURED MOVIE SECTION (Upcoming)
-           ========================================= */
-        #featured {
-            position: relative;
-            width: 100%;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            /* Sci-Fi City Background */
-            background-image: url('img4.png');
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-            margin-bottom: 4rem;
-        }
+/* CREATORS */
+.creator-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-red);
+}
 
-        /* Subtle Zoom Animation */
-        #featured::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: inherit;
-            background-size: cover;
-            background-position: center;
-            animation: zoomSlow 20s infinite alternate;
-            z-index: 0;
-        }
-
-        @keyframes zoomSlow {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-
-        /* Strong Left-to-Right Gradient Overlay */
-        .featured-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, #000 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 60%, transparent 100%);
-            z-index: 1;
-        }
-
-        .featured-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            padding-left: 5%;
-            padding-right: 20px;
-        }
-
-        .featured-genres {
-            color: var(--primary-red);
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .featured-title {
-            font-family: var(--font-heading);
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .featured-desc {
-            font-size: 1.1rem;
-            color: #ddd;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px black;
-        }
-
-        /* =========================================
-           CATEGORIES SECTION
-           ========================================= */
-        #categories {
-            padding: 2rem 0 4rem 0;
-        }
-
-        .section-header-banner {
-            width: 100%;
-            height: 60px;
-            background: linear-gradient(90deg, var(--primary-red) 0%, #8a050c 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
-        }
-
-        .section-header-text {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 Columns on Desktop */
-            gap: 20px;
-        }
-
-        .category-card {
-            position: relative;
-            height: 250px; /* Big Poster Style */
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27);
-        }
-
-        .category-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
-            z-index: 2;
-        }
-
-        .category-bg {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s ease;
-        }
-
-        .category-card:hover .category-bg {
-            transform: scale(1.1);
-        }
-
-        .category-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-
-        .category-card:hover .category-overlay {
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .category-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        }
-
-        /* =========================================
-           TOP CREATORS SECTION
-           ========================================= */
-        #creators {
-            padding: 4rem 0;
-            background-color: #0f0f0f;
-            border-top: 1px solid #222;
-        }
-
-        .creators-header {
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        
-        .creators-header h2 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            background: -webkit-linear-gradient(#fff, #999);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .creators-row {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .creator-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            width: 150px;
-        }
-
-        .creator-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .creator-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid var(--primary-red);
-            padding: 3px;
-            background-clip: content-box;
-            background-color: transparent;
-            transition: border-color 0.3s;
-        }
-
-        .creator-card:hover .creator-img {
-            border-color: white;
-        }
-
-        .creator-name {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .creator-title {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
-
-        /* =========================================
-           CENTER SECTION (And Many More)
-           ========================================= */
-        #more {
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .more-text {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--text-gray);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        /* =========================================
-           FOOTER
-           ========================================= */
-        footer {
-            background-color: black;
-            padding: 4rem 20px;
-            font-size: 0.9rem;
-            color: #808080;
-            text-align: center;
-            border-top: 1px solid #333;
-        }
-
-        .footer-content p {
-            margin-bottom: 1rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .footer-links {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 0.8rem;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 3rem;
-            font-size: 0.85rem;
-            color: #555;
-        }
-
-        /* =========================================
-           RESPONSIVE DESIGN
-           ========================================= */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .featured-title {
-                font-size: 2.2rem;
-            }
-
-            .categories-grid {
-                grid-template-columns: 1fr; /* 1 Column on Mobile */
-            }
-
-            .creators-row {
-                gap: 20px;
-            }
-
-            .section-header-text {
-                font-size: 1.4rem;
-            }
-        }
-    </style>
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .featured-title { font-size: 2rem; }
+    .categories-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- HERO SECTION -->
-    <header id="hero">
-        <div class="hero-content fade-on-scroll">
-            <h1 class="hero-title">RedPorn</h1>
-            <p class="hero-subtitle">Unlimited Porn. Watch anywhere.</p>
-            <a href="#featured" class="btn btn-primary">Watch Now</a>
-        </div>
-    </header>
+<header id="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">RedPorn</h1>
+        <p class="hero-subtitle">Unlimited Porn. Watch anywhere.</p>
+        <a href="#featured" class="btn btn-primary">Watch Now</a>
+    </div>
+</header>
 
-    <main>
-        <!-- FEATURED MOVIE SECTION -->
-        <section id="featured">
-            <div class="featured-overlay"></div>
-            <div class="featured-content fade-on-scroll">
-                <div class="featured-genres">Ass | Creampie | Facefuck</div>
-                <h2 class="featured-title">Indian bitch Torsa wanted to play with the sex machine but got a big load of cum on her face</h2>
-                <p class="featured-desc">
-                    She thought she could handle the power, but the machine had other plans. Things got messy, intense, and way more overwhelming than she expected leaving her shocked, breathless, and dripping in the aftermath.
-                </p>
-                <div class="featured-actions">
-                    <button class="btn btn-primary">Add To Watch Later</button>
-                    <button class="btn btn-secondary">+ Add to List</button>
-                </div>
-            </div>
-        </section>
+<section id="featured">
+    <div class="featured-overlay"></div>
+    <div class="featured-content">
+        <div class="featured-genres">Ass | Creampie | Facefuck</div>
+        <h2 class="featured-title">
+            Indian bitch Torsa wanted to play with the sex machine but got a big load of cum on her face
+        </h2>
+        <p class="featured-desc">
+            She thought she could handle the power, but the machine had other plans.
+        </p>
+        <button class="btn btn-primary">Add To Watch Later</button>
+        <button class="btn btn-secondary">+ Add to List</button>
+    </div>
+</section>
 
-        <!-- CATEGORIES SECTION -->
-        <section id="categories" class="container">
-            <div class="section-header-banner">
-                <span class="section-header-text">Categories</span>
-            </div>
-
-            <div class="categories-grid">
-                <!-- Action -->
-                <a href="https://example.com/category/action" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/action/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Action</h3>
-                    </div>
-                </a>
-
-                <!-- Romance -->
-                <a href="https://example.com/category/romance" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/romance/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Romance</h3>
-                    </div>
-                </a>
-
-                <!-- Thriller -->
-                <a href="https://example.com/category/thriller" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/thriller/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Thriller</h3>
-                    </div>
-                </a>
-
-                <!-- Sci-Fi -->
-                <a href="https://example.com/category/scifi" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/scifi/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Sci-Fi</h3>
-                    </div>
-                </a>
-
-                <!-- Drama -->
-                <a href="https://example.com/category/drama" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/drama/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Drama</h3>
-                    </div>
-                </a>
-
-                <!-- Comedy -->
-                <a href="https://example.com/category/comedy" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/comedy/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Comedy</h3>
-                    </div>
-                </a>
-
-                <!-- Horror -->
-                <a href="https://example.com/category/horror" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/horror/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Horror</h3>
-                    </div>
-                </a>
-
-                <!-- Documentary -->
-                <a href="https://example.com/category/documentary" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/documentary/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Documentary</h3>
-                    </div>
-                </a>
-
-                <!-- Anime -->
-                <a href="https://example.com/category/anime" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/anime/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Anime</h3>
-                    </div>
-                </a>
-
-                <!-- Trending -->
-                <a href="https://example.com/category/trending" class="category-card fade-on-scroll">
-                    <div class="category-bg" style="background-image: url('https://picsum.photos/seed/trending/600/400');"></div>
-                    <div class="category-overlay">
-                        <h3 class="category-title">Trending</h3>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- TOP CREATORS SECTION -->
-        <section id="creators">
-            <div class="container">
-                <div class="creators-header fade-on-scroll">
-                    <h2>Top Creators</h2>
-                </div>
-                
-                <div class="creators-row">
-                    <!-- Creator 1: Torsa Farooqi -->
-                    <a href="https://example.com/torsa" class="creator-card fade-on-scroll">
-                        <img src="https://picsum.photos/seed/torsa/200/200" alt="Torsa Farooqi" class="creator-img">
-                        <div class="creator-name">Torsa Farooqi</div>
-                        <div class="creator-title">Software Dev</div>
-                    </a>
-
-                    <!-- Creator 2 -->
-                    <a href="#" class="creator-card fade-on-scroll">
-                        <img src="https://picsum.photos/seed/creator2/200/200" alt="Alex Chen" class="creator-img">
-                        <div class="creator-name">Alex Chen</div>
-                        <div class="creator-title">Director</div>
-                    </a>
-
-                    <!-- Creator 3 -->
-                    <a href="#" class="creator-card fade-on-scroll">
-                        <img src="https://picsum.photos/seed/creator3/200/200" alt="Sarah Jones" class="creator-img">
-                        <div class="creator-name">Sarah Jones</div>
-                        <div class="creator-title">Producer</div>
-                    </a>
-
-                    <!-- Creator 4 -->
-                    <a href="#" class="creator-card fade-on-scroll">
-                        <img src="https://picsum.photos/seed/creator4/200/200" alt="Mike Ross" class="creator-img">
-                        <div class="creator-name">Mike Ross</div>
-                        <div class="creator-title">Editor</div>
-                    </a>
-
-                    <!-- Creator 5 -->
-                    <a href="#" class="creator-card fade-on-scroll">
-                        <img src="https://picsum.photos/seed/creator5/200/200" alt="Emily Blunt" class="creator-img">
-                        <div class="creator-name">Emily Blunt</div>
-                        <div class="creator-title">Writer</div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- CENTER SECTION -->
-        <section id="more">
-            <div class="container fade-on-scroll">
-                <h2 class="more-text">And Many More...</h2>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-content">
-            <p>2026 All rights reserved.</p>
-            <p>Cookies help us deliver our services. By using our services, you agree to our use of cookies.</p>
-            <p>This platform is intended for mature audiences. Viewer discretion is advised.</p>
-            <p>RedStream is rated for general streaming audiences.</p>
-            <p>Parental control tools are recommended for families.</p>
-            
-            <div class="copyright">
-                All rights reserved © Demo.
-            </div>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Setup Intersection Observer for Fade-in Animations
-            const observerOptions = {
-                root: null, // viewport
-                rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of element is visible
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Only animate once
-                    }
-                });
-            }, observerOptions);
-
-            // Select all elements with fade-on-scroll class
-            const fadeElements = document.querySelectorAll('.fade-on-scroll');
-            fadeElements.forEach(el => observer.observe(el));
-
-            // 2. Button Interaction (Simple Console Feedback)
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // In a real app, this would trigger a modal or navigation
-                    console.log(`Button clicked: ${this.innerText}`);
-                });
-            });
-
-            // 3. Add subtle parallax effect to Hero on mouse move (Cinematic touch)
-            const hero = document.getElementById('hero');
-            hero.addEventListener('mousemove', (e) => {
-                const x = (window.innerWidth - e.pageX * 2) / 90;
-                const y = (window.innerHeight - e.pageY * 2) / 90;
-                
-                // Apply subtle shift to background position
-                hero.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
-            });
-        });
-    </script>
 </body>
 </html>
